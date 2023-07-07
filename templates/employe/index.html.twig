@@ -10,6 +10,6 @@
     {# {{employe.raisonSociale ~ ' (' ~ employe.cp ~ ' ' ~ employe.ville ~ ')'}} <br> #}
     {# {{ employe.raisonSociale }} ({{ employe.cp }} {{ employe.ville }}) <br> #}
 
-    {{ employe }} <br>
+    <a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }} </a> <br>
 {% endfor %}
 {% endblock %}

@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
+
 class EmployeController extends AbstractController
 {
     #[Route('/employe', name: 'app_employe')]
@@ -18,6 +20,15 @@ class EmployeController extends AbstractController
         // $employes = $doctrine->getRepository(Employe::class)->findBy(["ville" => "Strasbourg"], ["nom" => "ASC"]);
         return $this->render('employe/index.html.twig', [
             'employes' => $employes
+        ]);
+    }
+
+
+    #[Route('/employe/{id}', name: 'show_employe')]
+    public function show(Employe $employe): Response
+    {
+        return $this->render('employe/show.html.twig', [
+            'employe' => $employe
         ]);
     }
 }
